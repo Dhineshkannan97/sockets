@@ -4,20 +4,16 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class client {
-    private Socket s = null;
-    private DataOutputStream out = null;
-    private DataInputStream input = null;
-
     public void clientServer(String ip ,int port){
+         Socket s ;
+        DataOutputStream out ;
+      DataInputStream input;
         try{
             s= new Socket(ip,port);
             input =new DataInputStream(System.in);
             out=new DataOutputStream(s.getOutputStream());
-        } catch (UnknownHostException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
