@@ -43,6 +43,5 @@ public class client {
     public static void main(String[] args) {
         client client= new client();
         client.clientServer("localhost",5000);
-
     }
 }
