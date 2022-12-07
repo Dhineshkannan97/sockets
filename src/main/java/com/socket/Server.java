@@ -1,5 +1,4 @@
 package com.socket;
-
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -20,7 +19,7 @@ public class Server {
             try {
                 in = new DataInputStream(new BufferedInputStream(s.getInputStream()));
                 String str = "";
-                while (str.equals("over")) {
+                while (!str.equals("over")) {
                     str = in.readUTF();
                     System.out.println(str);
 
