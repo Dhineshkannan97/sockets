@@ -30,13 +30,13 @@ public class client {
                 System.out.println();
                 throw new RuntimeException(e);
             }
-            try{
-                input.close();
-                out.close();
-                s.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
+        try{
+            input.close();
+            out.close();
+            s.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
