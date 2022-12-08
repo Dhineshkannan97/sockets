@@ -14,7 +14,7 @@ public class Server {
             ss = new ServerSocket(port);
             System.out.println("server start");
             s = ss.accept();
-            System.out.println("client accepted");
+            System.out.println("Client accepted");
             try {
                 in = new DataInputStream(new BufferedInputStream(s.getInputStream()));
                 String str = "";
