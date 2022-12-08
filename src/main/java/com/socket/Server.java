@@ -11,7 +11,6 @@ public class Server {
         DataInputStream in;
         Socket s;
         ServerSocket ss;
-
             ss = new ServerSocket(port);
             System.out.println("server start");
             s = ss.accept();
