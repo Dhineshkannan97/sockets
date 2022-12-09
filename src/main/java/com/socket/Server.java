@@ -7,25 +7,26 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    Socket s;
-    ServerSocket ss;
+
     public void socServer(int port) throws IOException {
+        Socket s;
+        ServerSocket ss;
         DataInputStream in;
-            ss = new ServerSocket(port);
-            System.out.println("server start");
-            s = ss.accept();
-            System.out.println("Client accepted");
-            try {
-                in = new DataInputStream(new BufferedInputStream(s.getInputStream()));
-                String str = "";
-                while (!str.equals("end")) {
-                    str = in.readUTF();
-                    System.out.println(str);
-                }
-            } catch (IOException e) {
-//                s.close();
-                throw new RuntimeException(e);
+        ss = new ServerSocket(port);
+        System.out.println("server start");
+        s = ss.accept();
+        System.out.println("Client accepted");
+        try {
+            in = new DataInputStream(new BufferedInputStream(s.getInputStream()));
+            String str = "";
+            while (!str.equals("end")) {
+                str = in.readUTF();
+                System.out.println(str);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        s.close();
     }
 
     public static void main(String[] args) throws IOException {
