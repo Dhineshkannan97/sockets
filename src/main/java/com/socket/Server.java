@@ -7,10 +7,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
+    Socket s;
+    ServerSocket ss;
     public void socServer(int port) throws IOException {
         DataInputStream in;
-        Socket s;
-        ServerSocket ss;
             ss = new ServerSocket(port);
             System.out.println("server start");
             s = ss.accept();
@@ -23,6 +23,7 @@ public class Server {
                     System.out.println(str);
                 }
             } catch (IOException e) {
+//                s.close();
                 throw new RuntimeException(e);
             }
     }
