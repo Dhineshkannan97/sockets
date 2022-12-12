@@ -12,6 +12,7 @@ public class Server {
         Socket s;
         ServerSocket ss;
         DataInputStream in;
+        while(true){
         ss = new ServerSocket(port);
         System.out.println("server start");
         s = ss.accept();
@@ -26,8 +27,9 @@ public class Server {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        ss.close();
         s.close();
-    }
+    }}
 
     public static void main(String[] args) throws IOException {
         Server server = new Server();
