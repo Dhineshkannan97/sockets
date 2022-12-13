@@ -9,31 +9,34 @@ import java.net.Socket;
 public class Server {
 
     public void socServer(int port) throws IOException {
-        Socket s;
-        ServerSocket ss;
-        DataInputStream in;
-        while(true){
-        ss = new ServerSocket(port);
-        System.out.println("server start");
-        s = ss.accept();
-        System.out.println("Client accepted");
-        try {
-            in = new DataInputStream(new BufferedInputStream(s.getInputStream()));
-            String str = "";
-            while (!str.equals("end")) {
-                str = in.readUTF();
-                System.out.println(str);
+        Socket socket;
+        ServerSocket serverSocket;
+        DataInputStream input;
+        serverSocket = new ServerSocket(port);
+
+        while (true) {
+            System.out.println("server start");
+            System.out.println(serverSocket);
+            socket = serverSocket.accept();
+            System.out.println("Client accepted");
+            System.out.println(socket);
+            try {
+                input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+                String str = "";
+                while (!str.equals("end")) {
+                    str = input.readUTF();
+                    System.out.println(str);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            serverSocket.close();
+            socket.close();
         }
-        ss.close();
-        s.close();
-    }}
+    }
 
     public static void main(String[] args) throws IOException {
         Server server = new Server();
         server.socServer(5000);
     }
-
 }
