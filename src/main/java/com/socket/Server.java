@@ -30,8 +30,8 @@ public class Server {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            serverSocket.close();
-            socket.close();
+//            serverSocket.close();
+//            socket.close();
         }
     }
 
