@@ -29,7 +29,6 @@ public class ServerThread extends Thread {
             throw new RuntimeException(e);
         } finally {
             try {
-                output.close();
                 input.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
