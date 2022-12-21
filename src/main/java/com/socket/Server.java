@@ -1,6 +1,5 @@
 package com.socket;
 
-import serverthread.ServerThread;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
